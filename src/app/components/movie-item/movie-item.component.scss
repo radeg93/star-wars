@@ -1,0 +1,25 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+  font-size: 1rem;
+  border-top: 1px solid #f0f0f0;
+  padding: 16px;
+
+  >div &:nth-child(1) {
+    color: #979bad;
+    margin-bottom: 8px;
+  }
+
+  > div &:nth-child(2) {
+    color: #585f79;
+  }
+
+  &__label {
+    color: #979bad;
+  }
+
+  &__value {
+    color: #585f79;
+  }
+}

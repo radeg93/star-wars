@@ -1,0 +1,68 @@
+<div class="page-wrapper"
+     *ngIf="character$ | async as character">
+  <div class="header">
+    <mat-icon class="header__icon"
+              (click)="backToList()">arrow_back
+    </mat-icon>
+    <mat-card-header>
+      <div class="header__title">{{character[0].name}}</div>
+    </mat-card-header>
+  </div>
+  <mat-card-content class="content">
+    <mat-card>
+      <mat-card-title class="content__title">Basic info</mat-card-title>
+      <mat-card-content>
+        <div class="content__item">
+          <div class="content__item-label">Birth Year</div>
+          <div class="content__item-value">{{character[0].birth_year}}</div>
+        </div>
+
+        <div class="content__item">
+          <div class="content__item-label">Height</div>
+          <div class="content__item-value">{{character[0].height}}</div>
+        </div>
+
+        <div class="content__item">
+          <div class="content__item-label">Weight</div>
+          <div class="content__item-value">{{character[0].mass}}</div>
+        </div>
+
+        <div class="content__item">
+          <div class="content__item-label">Skin Color</div>
+          <div class="content__item-value">{{character[0].skin_color}}</div>
+        </div>
+
+        <div class="content__item">
+          <div class="content__item-label">Eye Color</div>
+          <div class="content__item-value">{{character[0].eye_color}}</div>
+        </div>
+
+        <div class="content__item">
+          <div class="content__item-label">Gender</div>
+          <div class="content__item-value">{{character[0].gender}}</div>
+        </div>
+
+        <div class="content__item">
+          <div class="content__item-label">Home World</div>
+          <div class="content__item-value">{{character[1].name}}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <ng-container *ngIf="movies$ | async as movies; else spinner">
+        <mat-card-title>Movies</mat-card-title>
+        <mat-card-content>
+          <app-movie-item *ngFor="let movie of movies"
+                          [movie]="movie"></app-movie-item>
+        </mat-card-content>
+      </ng-container>
+    </mat-card>
+  </mat-card-content>
+</div>
+
+<ng-template #spinner>
+  <div class="spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
